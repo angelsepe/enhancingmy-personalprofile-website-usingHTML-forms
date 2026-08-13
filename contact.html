@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>- My Personal Profile</title>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    </head>
+
+    <body>
+
+    <h1>Contact Me</h1>
+
+    <nav>
+        <a href="homepage.html">Home</a> |
+        <a href="about.html">About Me</a> |
+        <a href="hobbies.html">Hobbies</a> |
+        <a href="favorites.html">Favorites</a> |
+        <a href="goals.html">Goals</a> |
+        <a href="contact.html">Contact Me</a>
+    </nav>
+
+    <hr>
+
+    <p>Feel free to fill out the form below.</p>
+
+    <form id=f onsubmit="sendEmail(event)">
+
+        <p>
+            <label>Full Name:</label><br>
+            <input type="text" name="name" required>
+        </p>
+
+        <p>
+            <label>Email Address:</label><br>
+            <input type="email" name="email" required>
+        </p>
+
+        <p>
+            <label>Gender:</label><br>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </p>
+
+        <p>
+            <label>Interests:</label><br>
+            <input type="checkbox" name="interest" value="Technology"> Technology
+            <input type="checkbox" name="interest" value="Gaming"> Gaming<br>
+            <input type="checkbox" name="interest" value="Music"> Music
+            <input type="checkbox" name="interest" value="Coding"> Coding<br>
+            <input type="checkbox" name="interest" value="Movies"> Movies
+            <input type="checkbox" name="interest" value="Sports"> Sports<br>
+            <input type="checkbox" name="interest" value="Drawing"> Drawing
+            <input type="checkbox" name="interest" value="Traveling"> Traveling
+        </p>
+
+        <label>Strand:</label>
+    <select> name="strand">
+    <option>ICT</option>
+    <option>STEM</option>
+    <option>ABM</option>
+    <option>HUMSS</option>
+    <option>GAS</option>
+    </select>
+
+
+        <p>
+            <label>Purpose of Visit:</label><br>
+            <select name="purpose">
+                <option>General Inquiry</option>
+                <option>Feedback</option>
+                <option>Collaboration</option>
+                <option>School Project</option>
+                <option>Others</option>
+            </select>
+        </p>
+
+        <p>
+            <label>Message:</label><br>
+            <textarea name="message" rows="7" cols="50" required></textarea>
+        </p>
+
+        <p id=s></p>
+
+        <input type="hidden" name="title" value="Contact Me Form">
+        <input type="hidden" id=t name=time>
+
+        <p>
+            <input type="submit" value="Send Message">
+            <input type="reset" value="Clear Form">
+        </p>
+
+    </form>
+
+    <hr>
+
+    <p>THANK YOU SO MUCH FOR VISITING MY CONTACT FORM!</p>
+
+    <script>
+    emailjs.init({publicKey:"iP4AtOiV2tNr7G7AL"})
+    sendEmail=e=>(e.preventDefault(),t.value=Date(),emailjs.sendForm("service_mypg2rg","template_watftzj",f).then(()=>{s.innerHTML="<font color=green>Successfully Sent!</font>";f.reset()}).catch(()=>s.innerHTML="<font color=red>Failed!</font>"))
+    </script>
+
+    </body>
+    </html>
